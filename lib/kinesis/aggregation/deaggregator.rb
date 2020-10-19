@@ -1,7 +1,6 @@
 require 'base64'
 require 'hexdump'
 require 'digest'
-require 'pry'
 
 module Kinesis
   module Aggregation
@@ -15,8 +14,6 @@ module Kinesis
 
       def deaggregate
         return [kinesis_record] unless aggregated_record? && computed_md5 == kinesis_record_md5
-
-        binding.pry
 
         aggregated_record.records.map do |record|
           base_record.merge(
