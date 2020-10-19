@@ -1,5 +1,6 @@
 require 'base64'
 require 'digest'
+require 'active_support/core_ext/hash/indifferent_access'
 
 module Kinesis
   module Aggregation
@@ -8,7 +9,7 @@ module Kinesis
       DIGEST_SIZE = 16
 
       def initialize(raw_record)
-        @raw_record = raw_record
+        @raw_record = raw_record.with_indifferent_access
       end
 
       def deaggregate
