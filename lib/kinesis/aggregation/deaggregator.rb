@@ -1,5 +1,4 @@
 require 'base64'
-require 'hexdump'
 require 'digest'
 
 module Kinesis
