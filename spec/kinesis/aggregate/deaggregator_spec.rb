@@ -94,10 +94,10 @@ RSpec.describe Kinesis::Aggregation::Deaggregator do
     end
 
     it 'has the correct data' do
-      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[0][:data]))
-      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[1][:data]))
-      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[2][:data]))
-      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[3][:data]))
+      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[0][:data])))
+      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[1][:data])))
+      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[2][:data])))
+      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[3][:data])))
     end
   end
 
@@ -184,14 +184,14 @@ RSpec.describe Kinesis::Aggregation::Deaggregator do
     end
 
     it 'has the correct data'  do
-      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[0][:data]))
-      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[1][:data]))
-      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[2][:data]))
-      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[3][:data]))
-      expect(records[4]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[4][:data]))
-      expect(records[5]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[5][:data]))
-      expect(records[6]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[6][:data]))
-      expect(records[7]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[7][:data]))
+      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[0][:data])))
+      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[1][:data])))
+      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[2][:data])))
+      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[3][:data])))
+      expect(records[4]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[4][:data])))
+      expect(records[5]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[5][:data])))
+      expect(records[6]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[6][:data])))
+      expect(records[7]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[7][:data])))
     end
   end
 
@@ -269,10 +269,10 @@ RSpec.describe Kinesis::Aggregation::Deaggregator do
     end
 
     it 'has the correct data' do
-      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[0][:data]))
-      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[1][:data]))
-      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[2][:data]))
-      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: actual_user_records[3][:data]))
+      expect(records[0]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[0][:data])))
+      expect(records[1]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[1][:data])))
+      expect(records[2]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[2][:data])))
+      expect(records[3]).to match a_hash_including(kinesis: a_hash_including(data: Base64.encode64(actual_user_records[3][:data])))
     end
 
     it 'has the correct recordId' do

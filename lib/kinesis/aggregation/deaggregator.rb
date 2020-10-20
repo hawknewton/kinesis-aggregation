@@ -23,7 +23,7 @@ module Kinesis
               approximateArrivalTimestamp: kinesis_record[:kinesis][:approximateArrivalTimestamp],
               explicitHashKey: explicit_hash_for_for(record),
               partitionKey: partition_key_for(record),
-              data: record.data,
+              data: Base64.encode64(record.data),
               recordId: kinesis_record[:kinesis][:recordId]
             }
           )
