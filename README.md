@@ -52,7 +52,6 @@ deaggregated_records = Kinesis::Aggregation::Deaggregator.new(aggregated_record)
 
 ### Use from within a lambda
 
-`function.rb`:
 ```ruby
 require 'kinesis/aggregation'
 
