@@ -1,7 +1,7 @@
 RSpec.describe Kinesis::Aggregation::Aggregator do
 
   it 'can aggregate user records with EHK' do
-    EXPECTED_DATA = <<~DATA
+    expected_data = <<~DATA
       84mawgokZmMwM2RkODgtM2U3OS00NDhhLWIwMWEtN2NmMWJkNDdiNzg0CiRjYWU0MWIxYy1lYTYxLTQz
       ZjItOTBiZS1iODc1NWViZjg4ZTIKJGQ0OTA2OTBjLWU3NGQtNGRiMi1hM2M4LWQ4ZjJmMTg0ZmQyMwokYzkyNGJjMDktYjg1ZS00N2
       YxLWIzMmUtMzM2NTIyZWU1M2M4EiYzODQ4NjQ5NTg2NzUwODM5OTA3ODE1OTcyMzg0NjA1MTgwNzAyMBInMTkzNzg3NjAwMDM3Njgx
@@ -35,11 +35,11 @@ RSpec.describe Kinesis::Aggregation::Aggregator do
     aggregated_record = aggregator.aggregate!
     expect(aggregated_record).to match a_hash_including(partition_key: 'fc03dd88-3e79-448a-b01a-7cf1bd47b784')
     expect(aggregated_record).to match a_hash_including(explicit_hash_key: '38486495867508399078159723846051807020')
-    expect(Base64.decode64(aggregated_record[:data])).to eq Base64.decode64(EXPECTED_DATA)
+    expect(Base64.decode64(aggregated_record[:data])).to eq Base64.decode64(expected_data)
   end
 
   it 'can aggrete user records without EHK' do
-    EXPECTED_DATA = <<~DATA
+    expected_data = <<~DATA
       84mawgokNzhmZWIxMmEtZGJhMC00NWNhLWE5MWUtYmIxZjJmMTgxOWI0CiRjMmE3NTc4Ny00NjliLTQzMTAtODQwZC1kNDg2ZGNhN2
       ViNWUKJDY1MGU5MzYyLTU3MmItNDQyNy1iM2ZjLTEzNTQ5ZDdlNWFlNQokMWQ4ZDk2MDAtMDBiNy00NmYzLWE5ODMtZGU4MzQ3NzU0
       MGMwCiRmMmU3MThhMC0zODliLTQ5NGEtYjc5Ni0zMzU1YjA3NTY5Y2MKJDk2NWI4ZGE0LWE2YmQtNDc1NS04MWM5LWU3MTgxYWI3ZG
@@ -81,6 +81,6 @@ RSpec.describe Kinesis::Aggregation::Aggregator do
     expect(aggregated_record).to match a_hash_including(partition_key: '78feb12a-dba0-45ca-a91e-bb1f2f1819b4')
     expect(aggregated_record[:explicit_hash_key]).to eq ''
 
-    expect(Base64.decode64(aggregated_record[:data])).to eq Base64.decode64(EXPECTED_DATA)
+    expect(Base64.decode64(aggregated_record[:data])).to eq Base64.decode64(expected_data)
   end
 end

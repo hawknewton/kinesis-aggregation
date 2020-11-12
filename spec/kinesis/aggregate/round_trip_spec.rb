@@ -1,5 +1,4 @@
 require 'securerandom'
-require 'pry'
 
 RSpec.describe 'Round-tripping the aggregator and deaggregator' do
   subject(:round_trip) do
